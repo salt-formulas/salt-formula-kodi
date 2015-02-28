@@ -7,6 +7,21 @@ kodi_packages:
   - names: {{ server.pkgs }}
 #}
 
+{%- if grain.cpuarch == "armv7l" %}
+
+input:
+  group.present:
+  - system: True
+
+kodi_input_config:
+  file.managed:
+  - name: /etc/udev/rules.d/99-input.rules
+  - template: jinja
+  - source: salt://kodi/files/99-input.rules
+  - mode: 644
+
+{%- endif %}
+
 {%- for user_name, user in server.user.iteritems() %}
 
 {#
