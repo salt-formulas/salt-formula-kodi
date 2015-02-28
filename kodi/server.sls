@@ -7,7 +7,7 @@ kodi_packages:
   - names: {{ server.pkgs }}
 #}
 
-{%- if grain.cpuarch == "armv7l" %}
+{%- if grains.cpuarch == "armv7l" %}
 
 input:
   group.present:
