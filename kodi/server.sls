@@ -22,11 +22,11 @@ kodi_config:
 
 kodi_{{ user_name }}_{{ plugin_name }}:
   archive.extracted:
-  - name: /home/{{ user_name }}/.kodi/addon/
+  - name: /home/{{ user_name }}/.kodi/addons/
   - source: {{ plugin.source.address }}
   - source_hash: {{ plugin.source.hash }}
-  - archive_format: zip
-  - if_missing: /home/{{ user_name }}/.kodi/addon/{{ plugin_name }}/
+  - archive_format: {{ plugin.source.format }}
+  - if_missing: /home/{{ user_name }}/.kodi/addons/{{ plugin_name }}/
 
 {%- endfor %}
 
