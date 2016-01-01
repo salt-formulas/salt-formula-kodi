@@ -1,0 +1,6 @@
+applications:
+- kodi
+parameters:
+  kodi:
+    server:
+      enabled: True

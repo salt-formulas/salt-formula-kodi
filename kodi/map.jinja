@@ -1,0 +1,11 @@
+{% set server = salt['grains.filter_by']({
+    'Debian': {
+        'pkgs': ['kodi'],
+        'service': 'kodi',
+        'config': '/etc/kodi.conf',
+        'config_template': 'salt://kodi/conf/kodi.conf',
+        'cache_size': 64,
+        'incomming_connections': 8192,
+        'threads': 1,
+    },
+}, merge=salt['pillar.get']('kodi:server')) %}
